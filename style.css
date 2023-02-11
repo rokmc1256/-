@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cantainer {
+    width: 500px;
+    height: 700px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0 15px 0 15px;
+}
+
+.cantainer > h1 {
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+}
+
+.enterText {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #e0e1dd;
+    padding-bottom: 30px;
+}
+
+.enterText input {
+    padding: 10px 20px;
+    font-size: 1.3em;
+}
+
+.enterText button {
+    background-color: black;
+    color: antiquewhite;
+}
+
+.enterText button:active {
+    background-color: gray;
+}
+
+.list_item li{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 50px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.list_item li > p{
+    margin:none;
+}
+
+.list > .list_item {
+    list-style: none;
+}
