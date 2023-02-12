@@ -3,17 +3,17 @@ let addClickBtn = document.querySelector(".addBtn");
 addClickBtn.addEventListener("click", () => {
     let newLi = document.createElement("li");
     let newLiAtt = document.createAttribute("class");
-    newLiAtt.value="detailedItem";
+    newLiAtt.value = "detailedItem";
     newLi.setAttributeNode(newLiAtt);
-    
+
     // 클래스 속성값 추가
     let delClass = document.createAttribute("class");
     delClass.value = "del";
     let completeClass = document.createAttribute("class");
-    completeClass.value ="complete";
+    completeClass.value = "complete";
 
     // li 목록에 들어갈 글 태그와 완료 및 삭제 버튼 생성
-    let newSpan= document.createElement("span");
+    let newSpan = document.createElement("span");
     let complitionBtn = document.createElement("button");
     let clearBtn = document.createElement("button");
 
@@ -28,7 +28,7 @@ addClickBtn.addEventListener("click", () => {
     // 완료 및 삭제라는 텍스트 노드 생성
     let complition = document.createTextNode("완료");
     let clear = document.createTextNode("삭제");
-    
+
     //li의 자식을 span 으로, 그리고 span의 자식을 입력받은 텍스트 노드로 설정
     newLi.appendChild(newSpan).appendChild(newText);
     /* li의 자식을 완료버튼으로, 그리고 완료버튼의 자식으로 "완료" 라는 텍스트 노드로 설정 */
@@ -39,9 +39,26 @@ addClickBtn.addEventListener("click", () => {
     document.querySelector(".list_item").appendChild(newLi);
 
     addedText.value = "";
+
+
+    /* 노드 삭제 구간 */
+    let deletBtn = document.querySelectorAll(".del");
+    let items = document.querySelectorAll(".detailedItem");
+    for (let i = 0; i < deletBtn.length; i++) {
+        deletBtn[i].addEventListener("click", () => items[i].parentNode.removeChild(items[i]));
+    }
+
+    /* 완료된 글에 선 긋기 */
+    let valueInSpan = document.querySelectorAll("span");
+    let completeBtn = document.querySelectorAll(".complete");
+    for(let j = 0;j<completeBtn.length;j++){
+        completeBtn[j].addEventListener("click", () => {
+            valueInSpan[j].style.color="grey";
+            valueInSpan[j].style.textDecoration="line-through";
+        })
+    }
 })
 
-let deletBtn = document.querySelector(".del");
-deletBtn.addEventListener("click", () => {
-   console.log("print");
-})
+
+
+
